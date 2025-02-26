@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
     },
   ];
 
-  const cart = [];
+  let cart = [];
 
   // render all the products
   products.forEach((product) => {
@@ -47,33 +47,49 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  function renderCart(){
-    cartItems.innerHTML=""
-    let totalPrice=0;
-    if(cart.length){
-        emptyCartMessage.classList.add("hidden")
-        cartTotalMessage.classList.remove("hidden");
-        cart.forEach((item,index) => {
-
-            totalPrice+=item.price;
-            const cartItem = document.createElement("div");
-            cartItem.innerHTML = `
-            ${item.name} $${item.price.toFixed(2)}
-            `
-            cartItems.appendChild(cartItem);
-            totalPriceMessage.textContent=totalPrice;
-        });
+  function renderCart() {
+    cartItems.innerHTML = "";
+    let totalPrice = 0;
+    if (cart.length) {
+      emptyCartMessage.classList.add("hidden");
+      cartTotalMessage.classList.remove("hidden");
+      cart.forEach((item, index) => {
+        totalPrice += item.price;
+        const cartItem = document.createElement("div");
+        cartItem.innerHTML = `
+           
+          <div id="cartdiv">
+            <span>${item.name} $${item.price.toFixed(2)}
+            </span> <button data-id=${
+              item.id
+            } class="deleteBtn"> Remove</button>
+          </div>
+            `;
+        cartItems.appendChild(cartItem);
+        totalPriceMessage.textContent = totalPrice;
+      });
+    } else {
+      emptyCartMessage.classList.remove("hidden");
+      totalPriceMessage.textContent = "$0.00";
     }
-    else{
-        emptyCartMessage.classList.remove("hidden");
-        totalPriceMessage.textContent="$0.00"
-        
+    if(cart.length){
+      var cartItem = document.getElementById("cartdiv");
+      cartItem.addEventListener("click", (e) => {
+        if (e.target.tagName !== "BUTTON") return;
+
+        let id = e.target.getAttribute("data-id");
+        cart = cart.filter((prdt) => {
+          return prdt.id !== parseInt(id);
+        });
+        console.log(cart);
+        renderCart();
+      });
     }
   }
 
-  checkoutBtn.addEventListener("click",()=>{
-    cart.length = 0 
-    alert("check out sucessfull ")
+  checkoutBtn.addEventListener("click", () => {
+    cart.length = 0;
+    alert("check out sucessfull ");
     renderCart();
-  })
+  });
 });
