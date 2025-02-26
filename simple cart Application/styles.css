@@ -56,6 +56,16 @@ h2 {
   background-color: #3700b3;
 }
 
+.deleteBtn {
+   background-color: #e12b2b;
+  border: none;
+  padding: 5px 10px;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
 #cart-items {
   margin-bottom: 20px;
 }
@@ -80,4 +90,10 @@ h2 {
 
 .hidden {
   display: none;
+}
+
+#cartdiv{
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 8px;
 }
