@@ -2,13 +2,7 @@
 
 This repository showcases a collection of fundamental JavaScript projects designed to bridge the gap between theoretical knowledge and practical application. Each project focuses on core JavaScript concepts, providing hands-on experience to enhance your coding skills.
 
-## Table of Contents
 
-- [Project List](#project-list)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Project List
 
@@ -25,7 +19,6 @@ Below is an overview of the projects included in this repository:
    - *Description*: An interactive quiz application that presents multiple-choice questions to users.
    - *Features*:
      - Dynamic question rendering.
-     - Immediate feedback on answers.
      - Score tracking and display at the end of the quiz.
 
 3. **To-Do List with Local Storage**
@@ -49,10 +42,3 @@ Below is an overview of the projects included in this repository:
      - View cart summary with total price calculation.
      - Update or remove items from the cart.
 
-## Installation
-
-To run any of these projects locally, follow these steps:
-
-1. **Clone the Repository**:
-   ```bash
-   git clone https://github.com/VenkataViswas/JavaScript-Basic-Projects.git
